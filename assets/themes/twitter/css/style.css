@@ -1,0 +1,341 @@
+p {
+  font-family: 'proxima' !important;
+  font-size: 15px !important;
+  line-height: 23px !important;
+  /*text-align: justify;*/
+}
+  .posts p {
+    /*text-indent: 1.5em;*/
+    /*margin-left: 66px;*/
+  }
+/*.container {
+  width: 900px;
+}*/
+.container > footer {
+  margin-top: 20px;
+}
+.container > footer p {
+  text-align: center; /* center align it with the container */
+}
+
+/*.navbar-inner {
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	border-radius: 0 !important;
+}*/
+.content {
+  background-color: #FFF;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+}
+.page-header {
+  background-color: #F55D2D;
+  /*background-color: #08C;*/
+  padding: 20px 20px 10px;
+  margin: -20px 0px 20px;
+/*  margin: -20px -20px 20px;*/
+}
+  .page-header h2 {
+    color: #FFF !important;
+    font-size: 20px;
+/*    font-family: 'proxima';*/
+/*    font-style: normal;*/
+  }
+  /*.page-header h2 small {
+    color: #FFF !important;
+    font-size: 14px;
+    margin-left: 10px;
+    font-family: 'proxima';
+  }*/
+  .page-header .date {
+    color: #FFF;
+/*    margin-top: 10px;*/
+/*    font-style: italic;*/
+    font-family:'proxima';
+    float: right;
+    font-style: normal;
+    font-size: 14px;
+  }
+.hero-unit {
+/*  margin-top: 20px;*/
+  background-color: #EEE !important;
+  -webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+  .hero-unit h1 {
+    font-family: inherit !important;
+    font-weight: bold;
+    margin-bottom: 10px;
+/*    font-weight: lighter;*/
+  }
+  .hero-unit h1 a {
+    color: #000 !important;
+  }
+  .hero-unit h1 a:hover {
+    text-decoration: none;
+  }
+.btn {
+  font-size: 18px;
+  font-weight: 200;
+}
+a {
+  color: #F55D2D;
+}
+p a {
+  /*font-style: italic;*/
+  /*color: #AA3214;*/
+}
+a:hover {
+  color: #000;
+  /*font-style: normal;*/
+  text-decoration: none;
+}
+.brand:hover {
+  color: #F55D2D;
+}
+.post {
+  margin-bottom: 50px;
+}
+.posts .title {
+  float:left;
+  /*margin-left: 5px;*/
+/*  display: block;*/
+  width: 890px;
+}
+/*.title a {
+    color: #000 !important;
+}
+.title a:hover {
+  color: #F55D2D !important;
+}*/
+.clear {
+  clear: both;
+}
+.posts .date {
+/*  margin: 0 10px 5px -50px;*/
+  background: url('../img/date_bg.png');
+  width: 51px;
+  height: 51px;
+  float: left;
+  margin-left: -70px;
+  margin-bottom: 15px;
+/*  font-family: 'Droid Serif';*/
+/*  color: #999;*/
+/*  font-size: 12px;*/
+/*  margin-bottom: 3px;*/
+/*  font-weight: normal;*/
+/*  font-size: 18px;*/
+/*  width:70px;*/
+/*  text-align: right;*/
+/*  color: #FFF;*/
+/*  background-color: #CCC;*/
+/*  display:inline-block;*/
+/*  padding:6px;*/
+/*  line-height:13px;*/
+/*  position: relative; */
+/*  background-color: transparent;*/
+}
+/*  .smalldate {
+    font-size:12px;
+  }
+*/
+.date .month {
+  color: rgb(190,190,190);
+  text-align: center;
+  letter-spacing: 1px;
+  display: block;
+  margin-top: 8px;
+  text-transform: uppercase;
+  font-family: "Georgia";
+  font-size: 11px;
+}
+.date .day {
+  color: rgb(124, 124, 124);
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  font-family: "Palatino";
+  font-size: 16px;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'skolar', serif;
+  font-weight: normal;
+  font-style: italic;
+}
+  h4 {
+    font-size: 22px !important;
+    line-height: 24px;
+  }
+  .post h1 {
+    font-size: 18px !important;
+  }
+  .post h2:not(.title) {
+    font-size: 14px !important;
+  }
+blockquote p {
+  font-style: italic;
+  font-family: 'Palatino';
+/*  font-size: 16px !important;*/
+}
+
+.tagline {
+  float: left;
+  /*margin-left: 15px;*/
+  padding: 10px 0px 5px;
+  color: rgb(150, 150, 150);
+/*  font-style: italic;*/
+/*  font-family: "Droid Serif";*/
+  font-size: 11px;
+}
+
+/* tag_box ======================================================== */
+
+.tag_box {
+	list-style:none;
+	margin:0;
+	padding: 10px 10px 0 0 ;
+	overflow:hidden;
+}
+.tag_box.inline {
+  float:left;
+  margin-left: 5px;
+}
+.tag_box.inline li {
+	float:left;
+}
+.tag_box.inline a {
+/*  background:none !important;*/
+}
+.tag_box li {
+  margin-bottom: 5px;
+  margin-right: 4px;
+  text-align: right;
+}
+.tag_box a {
+  color: #888;
+	text-decoration:none;
+/*  padding: 1px 4px 2px;*/
+  padding: 4px 5px;
+  font-size: 11px;
+/*  font-weight: bold;*/
+/*  line-height: 17px;*/
+/*  font-family: 'adelle', serif;*/
+  vertical-align: top;
+  white-space: nowrap;
+/*  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);*/
+/*  background-color: #999999;*/
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: rgb(240,240,240);
+/*  text-transform: uppercase;*/
+/*  letter-spacing: 1px;*/
+/*  margin: 2px;*/
+}
+
+.tag_box a span{
+	vertical-align:super;
+	font-size:0.8em;
+}
+.tag_box a:hover {
+  background-color: rgb(200,200,200);
+  color: #FFF;
+	text-decoration:none;
+}
+
+/*.filters {
+float:left;
+clear:both;
+width:1000px;
+}*/
+
+/*.filters .filter {
+  float:left;
+  clear:both;
+  padding:20px;
+  margin-bottom:20px;
+  background:#545454;
+  background:rgba(255, 255, 255, .1);
+}
+*/
+/*.filters .filter a {
+  float:left;
+  display:block;
+  padding:5px;
+  margin-right:20px;
+  font-size:11px;
+  text-transform:uppercase;
+  outline:none;
+}
+*/
+.filters .filter .active {
+  background:#F55D2D;
+  color:#FFF;
+}
+
+.filters .container {
+  float:left;
+  clear:both;
+  width:100%;
+  position:relative;
+}
+
+.filters .container ul,
+.filters .container ul li {
+  display:block;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.filters .container ul li {
+  float:left;
+  margin:0 8px 8px 0;
+}
+
+.filters .container a {
+  display:block;
+  float:left;
+  width:200px;
+  height:110px;
+/*  background: #EEE;*/
+  padding:13px;
+  font-size:20px;
+  font-family: 'proxima', serif;
+/*  color: #000 !important;*/
+  line-height:20px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+/*  letter-spacing: 2px;*/
+/*  text-transform: uppercase;*/
+}
+.filters .container a:hover {
+  text-decoration: none;
+/*  color: #F55D2D !important;*/
+}
+.filters .tagline {
+  margin-top: 7px;
+  color: #000;
+  font-size: 14px;
+}
+.filters .date {
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+.filters .title {
+  font-family: 'skolar' !important;
+  font-style: italic;
+}
+.filters .container a span {
+  display:block;
+  position:relative;
+  color:#999;
+/*  text-shadow: 1px 1px 0 rgba(256, 256, 256, 0.25);*/
+  top: 15px;
+  font-size:13px;
+/*  font-style: italic;*/
+  text-align: right;
+/*  letter-spacing: 0px;*/
+}

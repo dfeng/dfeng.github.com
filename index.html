@@ -1,0 +1,44 @@
+---
+title: dfeng
+layout: page
+---
+{% include JB/setup %}
+
+<div class="posts">
+{% for post in paginator.posts %}
+  <div class="post">
+    <h1 class="title">
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </h1>
+    {{ post.content }}
+    <div class="post-detail">
+      <div class="date">
+        {{ post.date | date: "%B %d, %Y" }} / comments
+      </div>
+      <div class="post-tags">
+        {% assign tags_list = post.tags %}
+        <ul>
+          {% include JB/tags_list %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+<ul class="pager">
+{% if paginator.next_page %}
+  <li class="previous">
+    <a href="/page{{ paginator.next_page }}/">&larr; Older</a>
+  </li>
+{% endif %}
+{% if paginator.previous_page %}
+  <li class="next">
+  {% if paginator.previous_page == 1 %}
+    <a href="/">Newer &rarr;</a>
+  {% else %}
+    <a href="/page{{ paginator.previous_page }}/">Newer &rarr;</a>
+  {% endif %}
+  </li>
+{% endif %}
+</ul>

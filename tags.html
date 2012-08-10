@@ -1,0 +1,49 @@
+---
+layout: page
+title: Tags
+icon: tags
+group: navigation
+---
+{% include JB/setup %}
+<script type="text/javascript">
+  $(function(){
+    $('.filters').filters({
+    	move: {
+    		init: false
+    	},
+    	css3: {
+    		init: false
+    	},
+    	fade: {
+    		opacity: [.2, 1]
+    	},
+      container: {
+        name: 'filter-posts',
+        element: 'div'
+      }
+    });
+    $(["a[rel=",window.location.hash.replace("#", ""),"]"].join("")).click()
+  });
+</script>
+<div class="filters">
+  <p>Click on the tags below to filter the posts:</p>
+  <div class="filter post-tags post-detail">
+    <ul>
+    {% if site.tags.first[0] == null %}
+    {% for tag in site.tags %}
+      <li><a href="#{{ tag }}" rel="{{ tag }}">{{ tag }}</a></li>
+    {% endfor %}
+    {% else %}
+    {% for tag in site.tags %} 
+      <li><a href="#{{ tag[0] }}" rel="{{ tag[0] }}">{{ tag[0] }}</a></li>
+    {% endfor %}
+    {% endif %}
+      <li><a href="#" rel="all">all</a></li>
+    </ul>
+  </div>
+  <div class="filter-posts">
+    {% for post in site.posts %}
+      <div class="{{ post.tags | join " " }}"><a href="{{ BASE_PATH }}{{ post.url }}"><span class="date">{{ post.date | | date: "%B %e, %Y" }}</span><span class="title">{{ post.title }}</span><span class="tagline">{{ post.tagline }}</span></a></div>
+    {% endfor %}
+  </div>
+</div>

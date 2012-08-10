@@ -1,0 +1,175 @@
+body {
+  font-family: 'tisa', Georgia, serif;
+}
+p {
+  font-family: 'tisa', Georgia, serif;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.6;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+img {
+  border: 0;
+  vertical-align: middle;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.photo {
+  position: relative;
+}
+.icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
+}
+a:hover {
+  text-decoration: none;
+}
+blockquote p {
+  font-size: 13px;
+  font-style: italic;
+}
+body > .container {
+  border: 1px solid #EEE;
+  border-top: none;
+  border-bottom: none;
+  -moz-box-shadow: 0 1px
+}
+.content {
+  margin-left: 150px;
+  margin-right: 100px;
+}
+  .post {
+    margin-bottom: 100px;
+  }
+  .post h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .post h1 a {
+    color: #222;
+  }
+  .post h1 a:hover {
+    color: #08C;
+  }
+  .post h1:not(.title) {
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  .post-detail {
+    margin-top: 20px;
+    font-family: "Menlo", "Monaco", "Lucida Console", Monospace;
+    color: #999;
+    font-size: 10px;
+  }
+  .post-tags:not(.filter) {
+    border-top: 1px solid #E6E6E6;
+  }
+    .post-tags ul {
+      list-style: none;
+      margin-left: 0px;
+    }
+    .post-tags li a {
+      display: block;
+      float: left;
+      margin: 0 2px 2px 0;
+      padding: 4px 8px;
+      background: #F3F3F3;
+      color: #999;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .post-tags li a:hover {
+      background: #EEE;
+    }
+#sidebar-icons {
+  list-style: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 200px;
+  background: white;
+  padding: 10px;
+  margin: 0;
+}
+#sidebar-icons li {
+  margin-top: 10px;
+}
+#sidebar-icons a {
+  opacity: 0.5;
+}
+#sidebar-icons a:hover {
+  opacity: 1;
+}
+.paginate {
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+  .paginate a {
+    margin-left: 20px;
+  }
+  .paginate .disabled {
+    color: #EEE;
+  }
+.tooltip-inner {
+  padding: 20px;
+  min-height: 100px;
+}
+  .tooltip .exiflabel {
+    color: #EEE;
+    text-transform: uppercase;
+    font-size: 10px;
+    text-align: left;
+    padding-right: 12px;
+    font-weight: normal !important;
+    opacity: 1;
+    display: block;
+  }
+  .tooltip-inner div {
+    text-align: left !important;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: white;
+    font-size: 12px;
+    line-height: 1.4;
+    text-indent: 0;
+    font-weight: bold;
+    opacity: 1 !important;
+    margin-bottom: 10px;
+    min-width: 95px;
+  }
+  .tooltip .cameraProperty {
+    float: left;
+  }
+.active {
+  background: #999 !important;
+  color: #F3F3F3 !important;
+}
+.filter-posts {
+  margin-top: 70px;
+}
+.filter-posts div {
+  float: left;
+  display: block;
+  width: 210px;
+  height: 110px;
+  padding-right: 20px;
+}
+  .filter-posts span {
+    display: block;
+    color: #444;
+  }
+  .filter-posts .title {
+    font-size: 17px;
+    color: #333;
+  }
+  .filter-posts .date {
+    font-family: "Menlo", "Monaco", "Lucida Console", Monospace;
+    color: #999;
+    font-size: 10px;
+  }
