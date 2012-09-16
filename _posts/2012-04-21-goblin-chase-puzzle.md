@@ -25,5 +25,5 @@ Let the radius of the circle be 1. Consider the concentric circle with radius $1
 If we now try to head south again, we get a threshold value of $\pi + 1$. But, slightly counterintuitively, we can do better by heading west while the goblin travels clockwise. Why doesn't the goblin just travel anti-clockwise? He'll get there faster than if he travels clockwise. But the goblin is unaware of our intentions. Hence, the moment he goes clockwise, we start heading west. Since we are now in mid-circle territory, the goblin is gaining on us "angularly", so it is optimal for him to continue clockwise.
 
 For this setup, solving the pair of equations
-\\\[\sin B = (\pi + B) \cos B, \quad \cos B = \frac{1}{k}\\\]
+\\\[\sin B = (\pi + B) \cos B, \quad \cos B = 1/k\\\]
 gives us $B=1.3518168$ rad and therefore $T = 4.6033388$.
