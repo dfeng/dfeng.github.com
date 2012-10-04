@@ -29,9 +29,9 @@ group: navigation
     color: #08C;
   }
   .filter-posts .date {
-    font-family: "Menlo", "Monaco", "Lucida Console", Monospace;
+    /*font-family: "Menlo", "Monaco", "Lucida Console", Monospace;*/
     color: #999;
-    font-size: 10px;
+    font-size: 12px;
   }
 </style>
 <script type="text/javascript">
@@ -63,7 +63,7 @@ group: navigation
       <li><a href="#{{ tag }}" rel="{{ tag }}">{{ tag }}</a></li>
     {% endfor %}
     {% else %}
-    {% for tag in site.tags %} 
+    {% for tag in site.tags %}
       <li><a href="#{{ tag[0] }}" rel="{{ tag[0] }}">{{ tag[0] }}</a></li>
     {% endfor %}
     {% endif %}

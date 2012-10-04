@@ -13,8 +13,10 @@
   background-color: white;
 }
   #header h1 a {
-    font-family: 'OutageRegular', sans-serif;
-    font-weight: normal;
+    /*font-family: 'OutageRegular', sans-serif;*/
+    font-family: 'Georgia';
+    /*text-transform: uppercase;*/
+    font-weight: 600;
     text-decoration: none;
     display: block;
     font-size: 40px;
