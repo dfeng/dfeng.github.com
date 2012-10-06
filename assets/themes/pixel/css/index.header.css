@@ -57,6 +57,8 @@
     z-index: 100;
   }
     #header #title-small a {
+      font-family: 'proxima';
+      font-weight: 600;
       font-size: 24px !important;
       padding: 32px 0 28px 40px;
       height: 100%;
