@@ -15,6 +15,8 @@ Below is the puzzle, taken from [here](http://domino.watson.ibm.com/Comm/wwwr_po
 >
 >The answer depends on the parameter $k$. There is a threshold $T$, such that if $k < T$ then we can escape, and if $K > T$ the goblin will eat us. Find the threshold $T$ to six digits.
 
+This was a lot of fun. Please try solving it for yourself before you read further.
+
 Holistic Solution
 =========
 

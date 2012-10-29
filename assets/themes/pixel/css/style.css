@@ -1,14 +1,12 @@
 body {
-  font-family: 'tisa', Georgia, serif;
   font-family: 'proxima', Georgia, serif;
 }
 p {
-  font-family: 'tisa', Georgia, serif;
   font-family: 'proxima', Georgia, serif;
-  color: #333;
+  color: #444;
   font-size: 15px;
   line-height: 1.6;
-  text-align: justify;
+  /*text-align: justify;*/
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
@@ -41,7 +39,7 @@ blockquote {
   /*border-width: 10px;*/
 }
 blockquote p {
-  font-size: 15px;
+  /*font-size: 15px;*/
   /*font-style: italic;*/
   line-height: 1.6;
   color: #777;
@@ -50,11 +48,11 @@ body > .container {
   border: 1px solid #EEE;
   border-top: none;
   border-bottom: none;
-  -moz-box-shadow: 0 1px
+  -moz-box-shadow: 0 1px;
 }
 .content {
   margin-left: 148px;
-  margin-right: 100px;
+  margin-right: 130px;
 }
   .post {
     margin-bottom: 100px;
@@ -73,9 +71,11 @@ body > .container {
     color: #08C;
   }
   .post h1:not(.title) {
-    font-size: 17px;
-    margin-top: 10px;
-    margin-bottom: 0px;
+    font-size: 19px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    color: #000;
     /*font-style: italic;*/
   }
   .post-detail {
@@ -131,6 +131,7 @@ body > .container {
 .paginate {
   margin-top: 40px;
   margin-bottom: 100px;
+  text-align: right;
 }
   .paginate a {
     margin-left: 20px;
