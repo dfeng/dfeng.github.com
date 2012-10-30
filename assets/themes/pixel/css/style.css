@@ -39,13 +39,13 @@ blockquote {
   /*border-width: 10px;*/
 }
 blockquote p {
-  /*font-size: 15px;*/
+  font-size: 15px;
   /*font-style: italic;*/
   line-height: 1.6;
   color: #777;
 }
 body > .container {
-  border: 1px solid #EEE;
+  /*border: 1px solid #EEE;*/
   border-top: none;
   border-bottom: none;
   -moz-box-shadow: 0 1px;
