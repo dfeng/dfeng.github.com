@@ -63,6 +63,7 @@ task :post do
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts "tagline: "
+    post.puts "showtitle: true"
     post.puts "tags: []"
     post.puts "---"
     post.puts "{% include JB/setup %}"

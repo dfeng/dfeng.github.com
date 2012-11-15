@@ -2,6 +2,7 @@
 layout: post
 title: "Yellow Mountain"
 tagline: "Sunrise photography"
+showtitle: true
 tags: [photography]
 ---
 {% include JB/setup %}

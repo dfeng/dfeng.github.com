@@ -2,6 +2,7 @@
 layout: post
 title: "Albert Camus"
 tags: [philosophy]
+showtitle: true
 tagline: "Absurdism and the Stranger"
 ---
 {% include JB/setup %}

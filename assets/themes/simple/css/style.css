@@ -1,16 +1,35 @@
 body {
-  font-family: 'proxima', sans-serif;
+  font-family: 'Georgia', sans-serif;
 }
 p {
   -webkit-font-smoothing: antialiased;
-  font-family: Georgia, serif;
   color: #222;
   font-size: 14px;
   line-height: 1.6;
-  /*text-align: justify;*/
 }
 h1, h2, h3, h4, h5, h6 {
+  /*-webkit-font-smoothing: antialiased;*/
+  font-family: 'proxima', sans-serif;
   font-weight: 600;
+}
+header {
+  padding: 50px;
+  text-align: center;
+}
+#title {
+  font-size: 32px;
+  font-family: 'Georgia' !important;
+  /*text-transform: uppercase;*/
+}
+#title a {
+  color: #222;
+}
+#title a:hover {
+  color: #666;
+}
+#subtitle {
+  font-family: 'Menlo', "Monaco", "Lucida Console", Monospace;
+  font-size: 12px;
 }
 img {
   border: 0;
@@ -19,29 +38,6 @@ img {
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-}
-#header #title-small {
-  text-align: left;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: -15px;
-  width: 100%;
-  opacity: 0;
-  background-color: white;
-  z-index: 100;
-}
-#header #title-small a {
-  /*font-family: 'Georgia';*/
-  -webkit-font-smoothing: antialiased;
-  font-weight: 600;
-  font-size: 24px !important;
-  padding: 32px 0 28px 40px;
-  letter-spacing: 1px;
-  /*padding: 20px 0 28px 40px;*/
-  height: 100%;
-  color: #222 !important;
-  text-transform: capitalize;
 }
 .photo {
   position: relative;
@@ -66,17 +62,14 @@ blockquote p {
   font-size: 14px;
   /*font-style: italic;*/
   line-height: 1.6;
-  color: #777;
+  color: #555;
 }
-body > .container {
-  border: 1px solid #EEE;
+.container {
+  /*border: 1px solid #EEE;*/
   border-top: none;
   border-bottom: none;
   -moz-box-shadow: 0 1px;
-}
-.content {
-  margin-left: 148px;
-  margin-right: 130px;
+  width: 800px;
 }
   .post {
     margin-bottom: 100px;
@@ -135,13 +128,7 @@ body > .container {
     }
 #sidebar-icons {
   list-style: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 200px;
-  background: white;
-  padding: 10px;
-  margin: 0;
+  padding-top: 50px;
 }
 #sidebar-icons li {
   margin-top: 10px;
@@ -152,6 +139,7 @@ body > .container {
 #sidebar-icons a:hover {
   opacity: 1;
 }
+
 .paginate {
   margin-top: 40px;
   margin-bottom: 100px;
@@ -163,6 +151,7 @@ body > .container {
   .paginate .disabled {
     color: #EEE;
   }
+
 .tooltip-inner {
   padding: 20px;
   min-height: 100px;
@@ -221,12 +210,16 @@ hr {
   border-width: 5px 0 0;
   clear: both;
   margin: 0;
-  margin-left: 170px;
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 35px;
   margin-bottom: 30px;
   height: 0;
   width: auto;
   max-width: 300px;
   border-radius: 5px;
+}
+.affix {
+  position: fixed;
+  top: -20px;
 }
