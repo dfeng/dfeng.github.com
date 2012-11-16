@@ -12,7 +12,6 @@
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
     <link href="{{ ASSET_PATH }}/css/pygments.css" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ ASSET_PATH }}/css/font.css" rel="stylesheet" type="text/css">
     <style type="text/css">
     code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit; color: inherit;}
     </style>
@@ -52,7 +51,7 @@
           .on("hover", function(){$(this).children(".icon").toggle()});
         $("img[alt]",e).each(function(){
           cameraData = $(this).attr("alt").split(",");
-          $(this).siblings(".icon").data("title",["<div class='camera'><span class='exiflabel'>camera</span>",cameraData[0],"</div><div class='cameraProperty'><span class='exiflabel'>iso</span>",cameraData[1],"</div><div class='cameraProperty'><span class='exiflabel'>aperture</span>",cameraData[2],"</div><div class='cameraProperty'><span class='exiflabel'>exposure</span>",cameraData[3],"</div><div class='cameraProperty'><span class='exiflabel'>focal length</span>",cameraData[4],"</span></div>"].join(""));
+          $(this).siblings(".icon").data("title",["<div class='exif'><div class='camera'><span class='exiflabel'>camera</span>",cameraData[0],"</div><div class='cameraProperty'><span class='exiflabel'>iso</span>",cameraData[1],"</div><div class='cameraProperty'><span class='exiflabel'>aperture</span>",cameraData[2],"</div><div class='cameraProperty'><span class='exiflabel'>exposure</span>",cameraData[3],"</div><div class='cameraProperty'><span class='exiflabel'>focal length</span>",cameraData[4],"</span></div></div>"].join(""));
         });
         $(".photo",e).tooltip({
           selector: ".icon",
@@ -110,6 +109,15 @@
           itemSelector: ".posts div.post"
         });
         {% endif %}
+        /*greetings = ["Hi. I'm Derek!", "I love Community!", "More fish for Kunta.", "You can't disappoint a picture."]
+        function rand() {
+          return(greetings[Math.floor(Math.random() * greetings.length)])
+          // return(greetings.pop())
+        }
+        $('.icon-user').tooltip({
+          placement: "left",
+          title: rand
+        })*/
         init("html");
       });
     })(jQuery);
@@ -125,7 +133,7 @@
     </header>
     <div class="container"><div class="row-fluid">
       <div id="sidebar" class="span2">
-        <ul id="sidebar-icons" data-spy="affix" data-offset-top="120">
+        <ul id="sidebar-icons" data-spy="affix" data-offset-top="100">
           {% for node in site.pages %}
             {% if 'navigation' == node.group %}
               <li><a href="{{ node.url }}"><i class="icon-{{ node.icon }}"></i></a></li>

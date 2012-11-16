@@ -8,9 +8,9 @@ p {
   line-height: 1.6;
 }
 h1, h2, h3, h4, h5, h6 {
-  /*-webkit-font-smoothing: antialiased;*/
-  font-family: 'proxima', sans-serif;
-  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'HelveticaNeue-Light', sans-serif;
+  font-weight: 400;
 }
 header {
   padding: 50px;
@@ -19,13 +19,12 @@ header {
 #title {
   font-size: 32px;
   font-family: 'Georgia' !important;
-  /*text-transform: uppercase;*/
 }
 #title a {
   color: #222;
 }
 #title a:hover {
-  color: #666;
+  color: #08C;
 }
 #subtitle {
   font-family: 'Menlo', "Monaco", "Lucida Console", Monospace;
@@ -48,7 +47,7 @@ img {
   left: 5px;
   display: none;
 }
-.post a {
+.post a:not(.masonitem) {
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 a:hover {
@@ -69,11 +68,30 @@ blockquote p {
   border-top: none;
   border-bottom: none;
   -moz-box-shadow: 0 1px;
-  width: 800px;
+  width: 850px;
 }
+  /*.post:first-child {
+    margin-top: 0px !important;
+  }*/
   .post {
     margin-bottom: 100px;
+    /*margin-top: 50px;*/
   }
+/*    .flourish {
+      font-size: 30px;
+      -webkit-font-smoothing: antialiased;
+      color: #AAA;
+      text-align: center;
+    }
+      .laser {
+        margin-top:-9px;
+        display:block;
+        border:none;
+        color:white;
+        height:1px;
+        background: #EEE;
+        background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#DDD), to(#FFF));
+      }*/
   .post h1 {
     font-size: 22px;
     margin-bottom: 20px;
@@ -128,13 +146,13 @@ blockquote p {
     }
 #sidebar-icons {
   list-style: none;
-  padding-top: 50px;
+  /*padding-top: 50px;*/
 }
 #sidebar-icons li {
   margin-top: 10px;
 }
 #sidebar-icons a {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 #sidebar-icons a:hover {
   opacity: 1;
@@ -153,7 +171,10 @@ blockquote p {
   }
 
 .tooltip-inner {
-  padding: 20px;
+  padding: 15px;
+  font-family: "Monaco";
+}
+.tooltip .exif {
   min-height: 100px;
 }
   .tooltip .exiflabel {
@@ -163,7 +184,6 @@ blockquote p {
     text-align: left;
     padding-right: 12px;
     font-weight: normal !important;
-    opacity: 1;
     display: block;
   }
   .tooltip-inner div {
@@ -174,7 +194,6 @@ blockquote p {
     line-height: 1.4;
     text-indent: 0;
     font-weight: bold;
-    opacity: 1 !important;
     margin-bottom: 10px;
     min-width: 95px;
   }
@@ -200,7 +219,7 @@ blockquote p {
 }
 
 .masonitem {
-  width: 340px;
+  width: 274px;
   margin: 3px;
   float: left;
 }
@@ -221,5 +240,5 @@ hr {
 }
 .affix {
   position: fixed;
-  top: -20px;
+  top: 81px;
 }
