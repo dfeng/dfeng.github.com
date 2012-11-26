@@ -1,43 +1,66 @@
 body {
-  -webkit-font-smoothing: antialiased;
+  /*background-color: #e6ecf5;*/
+  /*-webkit-font-smoothing: antialiased;*/
   font-family: 'Georgia', sans-serif;
+  font-size: 14px;
+}
+a, a:hover {
+  color: #004276;
+/*  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+*/}
+a:hover {
+  /*color: inherit;*/
 }
 p {
-  color: #222;
-  font-size: 14px;
+  color: #333;
+  /*font-size: 15px;*/
   line-height: 1.6;
 }
 h1, h2, h3, h4, h5, h6 {
   /*-webkit-font-smoothing: antialiased;*/
-  font-family: 'HelveticaNeue-Light', sans-serif;
-  font-family: 'PT Sans Narrow' !important;
-  /*font-family: 'HelveticaNeue', sans-serif;*/
+  /*font-family: 'HelveticaNeue-Light', sans-serif;*/
+  /*font-family: 'PT Sans Narrow' !important;*/
+  font-family: 'quad' !important;
   font-weight: 400;
-  text-transform: uppercase;
+  /*font-style: italic;*/
+  /*text-transform: uppercase;*/
+  color: #222;
   /*font-weight: bold;*/
 }
 header {
   padding: 60px;
   text-align: center;
 }
-#title {
-  font-size: 24px;
-  font-family: 'Georgia' !important;
-  /*font-family: 'PT Sans Narrow' !important;*/
-  /*text-transform: uppercase;*/
-  letter-spacing: .1em;
-}
 #title a {
+  font-size: 30px;
+  font-weight: normal;
+  /*letter-spacing: -1px;*/
+  /*font-family: 'PT Sans Narrow' !important;*/
+  text-transform: capitalize;
+  color: #333;
+  /*letter-spacing: .1em;*/
+}
+/*#title a {
   color: #222;
 }
 #title a:hover {
   color: #08C;
-}
+}*/
 #subtitle {
   /*-webkit-font-smoothing: antialiased;*/
-  font-family: 'Menlo', Monospace;
+  font-family: "Menlo","Monaco","Lucida Console",Monospace;
   font-size: 11px;
+  /*text-transform: uppercase;*/
+  /*letter-spacing: 1px;*/
 }
+/*.flourish {
+  opacity: 0.7;
+  padding-top: 40px;
+  padding-bottom: -40px;
+  text-align: center;
+}*/
 img {
   border: 0;
   vertical-align: middle;
@@ -55,7 +78,7 @@ img {
   left: 5px;
   display: none;
 }
-.post a:not(.masonitem) {
+p a, .post h1 a {
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 a:hover {
@@ -63,6 +86,9 @@ a:hover {
 }
 blockquote {
   border-color: #08C;
+  border-color: #1375C2;
+  border-color: #3A87C2;
+  /*border-color: #CD2E29;*/
   /*border-width: 10px;*/
 }
 blockquote p {
@@ -73,9 +99,9 @@ blockquote p {
 }
 .container {
   /*border: 1px solid #EEE;*/
-  border-top: none;
-  border-bottom: none;
-  -moz-box-shadow: 0 1px;
+  /*border-top: none;*/
+  /*border-bottom: none;*/
+  /*-moz-box-shadow: 0 1px;*/
   width: 850px;
 }
   /*.post:first-child {
@@ -100,25 +126,33 @@ blockquote p {
         background: #EEE;
         background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#DDD), to(#FFF));
       }*/
-  .post h1 {
-    font-size: 22px;
-    margin-bottom: 20px;
+  h1 {
+    font-size: 20px;
   }
-  .span10 .post h1 {
-    font-size: 26px !important;
+  .post h1 {
+    /*font-family: "acta" !important;*/
+    /*text-transform: uppercase;*/
+    /*letter-spacing: 1px;*/
+    /*font-weight: 700;*/
+    margin-bottom: 10px;
+    /*font-style: italic;*/
+    /*color: #333 !important;*/
   }
   .post h1 a {
-    color: #333;
+    /*color: #333;*/
+    /*border-bottom: none;*/
   }
   .post h1 a:hover {
-    color: #08C;
+    /*color: #004276;*/
+    /*border-bottom: 1px solid rgba(0,0,0,0.3);*/
   }
   .post h1:not(.title) {
-    font-size: 19px;
+    font-size: 17px;
     margin-top: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-weight: normal;
-    color: #000;
+    /*color: #000;*/
+    text-transform: none;
     /*font-style: italic;*/
   }
   .post-detail {
@@ -143,24 +177,27 @@ blockquote p {
       float: left;
       margin: 0 2px 2px 0;
       padding: 4px 8px;
-      background: #F3F3F3;
+      background: #F7F7F7;
       color: #888;
       text-decoration: none;
       border-bottom: none;
       line-height: 1;
     }
     .post-tags li a:hover {
-      background: #EEE;
+      background: #EAEAEA;
     }
 #sidebar-icons {
   list-style: none;
-  /*padding-top: 50px;*/
+  padding-top: 10px;
 }
 #sidebar-icons li {
   margin-top: 10px;
 }
 #sidebar-icons a {
-  opacity: 0.4;
+  opacity: 0.5;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 #sidebar-icons a:hover {
   opacity: 1;
@@ -248,5 +285,13 @@ hr {
 }
 .affix {
   position: fixed;
-  top: 81px;
+  top: 100px;
+}
+.footnotes p {
+  display: inline;
+  font-size: 13px;
+  color: #444;
+}
+.footnotes a[href^="#fnref"] {
+  display: inline;
 }

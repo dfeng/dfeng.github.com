@@ -5,6 +5,12 @@
     </div>-->
     <h1 class="title">{{ page.title }}</h1>
     {{ content }}
+<div class="post-tags post-detail">
+  {% assign tags_list = page.tags %}
+  <ul>
+    {% include JB/tags_list %}
+  </ul>
+</div>
   </div>
   <!--<div class="span2">
     <div class="post-detail">
@@ -12,12 +18,12 @@
     </div>
   </div>
 </div>-->
-<div class="post-tags post-detail">
+<!--<div class="post-tags post-detail">
   {% assign tags_list = page.tags %}
   <ul>
     {% include JB/tags_list %}
   </ul>
-</div>
+</div>-->
 <div class="paginate post-detail">
 {% if page.previous %}
   <a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&lt; Previous post</a>

@@ -9,9 +9,10 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400" rel="stylesheet" type="text/css">
+    <!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet" type="text/css"> -->
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ ASSET_PATH }}/css/font.css" rel="stylesheet" type="text/css" media="all">
     <link href="{{ ASSET_PATH }}/css/pygments.css" rel="stylesheet" type="text/css" media="all">
     <style type="text/css">
     code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit; color: inherit;}
@@ -83,7 +84,7 @@
         }
         // create mason image gallery
         $(".post",e).each(function(){
-          if ($("a.view",this).length > 1)
+          if ($("a.view",this).length > 2)
             $("a.view",this).addClass("masonitem").wrapAll("<div class='mason'>");
         });
         var $container = $('.mason',e);
@@ -130,17 +131,17 @@
       <div class="container">
         <h1 id="title"><a href="/">{{ site.title }}</a></h1>
         <span id="subtitle">{{ site.tagline }}</span>
+        <!-- <div class="flourish"><i class="icon-leaf"></i></div> -->
       </div>
     </header>
     <div class="container"><div class="row-fluid">
       <div id="sidebar" class="span2">
         <ul id="sidebar-icons" data-spy="affix" data-offset-top="100">
           {% for node in site.pages %}
-            {% if 'navigation' == node.group %}
+            {% if node.group == 'navigation' %}
               <li><a href="{{ node.url }}"><i class="icon-{{ node.icon }}"></i></a></li>
             {% endif %}
           {% endfor %}
-          <li><a href="#"><i class="icon-heart"></i></a></li>
         </ul>
       </div>
       <div id="content" class="span8">
