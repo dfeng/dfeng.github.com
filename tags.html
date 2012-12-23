@@ -1,55 +1,42 @@
 ---
 layout: page
 title: Tags
-icon: tags
 group: navigation
 ---
 {% include JB/setup %}
 <style type="text/css">
-.content {
-  margin-right: 75px !important;
+.filters {
+  text-align: center;
+}
+.filter a {
+  color: #999;
 }
 .active {
-  background: #999 !important;
-  color: #F3F3F3 !important;
+  color: #222 !important;
 }
 .filter-posts {
-  margin-top: 70px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
 }
 .filter-posts div {
   float: left;
   display: block;
-  width: 255px;
+  width: 300px;
   height: 110px;
-  padding-right: 20px;
+  /*padding-right: 20px;*/
   font-size: 14px;
 }
-.filter-posts div:nth-child(even) {
-  /*text-align: right;*/
+.filter-posts span {
+  display: block;
 }
-  .filter-posts a:hover .title {
-    /*color: #3A87C2;*/
-  }
-  .filter-posts span {
-    /*-webkit-font-smoothing: antialiased;*/
-    display: block;
-    color: #555;
-  }
-  .filter-posts .title {
-    /*-webkit-font-smoothing: subpixel-antialiased;*/
-    /*font-family: 'HelveticaNeue-Light', sans-serif;*/
-    /*font-family: 'PT Sans Narrow' !important;*/
-    /*font-family: 'proxima', sans-serif;*/
-    font-weight: 400;
-    font-size: 18px;
-    /*text-transform: uppercase;*/
-    color: #004276;
-  }
-  .filter-posts .date {
-    /*font-family: "Menlo", "Monaco", "Lucida Console", Monospace;*/
-    color: #999;
-    font-size: 12px;
-  }
+.filter-posts .date {
+  margin-bottom: 0px;
+}
+.filter-posts .tagline {
+  color: #777;
+}
 </style>
 <script type="text/javascript">
   $(function(){
@@ -73,7 +60,7 @@ group: navigation
 </script>
 <div class="filters">
   <p>Click on the tags below to filter the posts:</p>
-  <div class="filter post-tags post-detail">
+  <div class="filter post-tags">
     <ul>
     {% if site.tags.first[0] == null %}
     {% for tag in site.tags %}
@@ -89,7 +76,11 @@ group: navigation
   </div>
   <div class="filter-posts">
     {% for post in site.posts %}
-      <div class="{{ post.tags | join " " }}"><a href="{{ BASE_PATH }}{{ post.url }}"><span class="date">{{ post.date | | date: "%B %e, %Y" }}</span><span class="title">{{ post.title }}</span><span class="tagline">{{ post.tagline }}</span></a></div>
+      <div class="{{ post.tags | join " " }}">
+        <span class="date">{{ post.date | | date: "%B %e, %Y" }}</span>
+        <span class="title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></span>
+        <span class="tagline">{{ post.tagline }}</span>
+      </div>
     {% endfor %}
   </div>
 </div>

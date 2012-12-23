@@ -2,12 +2,11 @@
 layout: post
 title: "Water Battle"
 tagline: "Puzzle from the 1987 Canadian Maths Olympiad"
-showtitle: true
 tags: [puzzle]
 ---
 {% include JB/setup %}
 
-A short, nice puzzle from [here][1], which states that it is from the 1987 Canadian Mathematical Olympiad.
+A short, nice puzzle from [here][1], which appeared on the 1987 Canadian Mathematical Olympiad.
 
 > An odd number of people armed with water guns are standing in a field so that all the pairwise distances are distinct. At a signal, each shoots at his nearest neighbor and hits him. Prove that one person doesn't get wet.
 

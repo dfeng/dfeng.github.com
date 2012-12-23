@@ -2,7 +2,6 @@
 layout: post
 title: "Goblin Chase Puzzle"
 tags: [puzzle]
-showtitle: true
 tagline: "Tricky puzzle about being chased by goblins"
 ---
 {% include JB/setup %}

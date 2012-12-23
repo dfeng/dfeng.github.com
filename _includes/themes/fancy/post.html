@@ -1,0 +1,32 @@
+{% if page.bigpicture %}
+<div class="post bigpicture">
+{% else %}
+<div class="post">
+{% endif %}
+  <h1 class="title">
+    <a href="{{ page.url }}">{{ page.title }}</a>
+  </h1>
+  <div class="date">
+    {{ page.date | date: "%B %d, %Y" }}
+  </div>
+  {{ content }}
+  <div class="post-tags">
+    {% assign tags_list = page.tags %}
+    <ul>
+      {% include JB/tags_list %}
+    </ul>
+    <div id="menudivider"></div>
+  </div>
+</div>
+<div class="paginator">
+{% if page.previous %}
+  <a class="previous" href="{{ BASE_PATH }}{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
+{% else %}
+  <a class="disabled">&nbsp;</a>
+{% endif %}
+{% if page.next %}
+  <a class="next" href="{{ BASE_PATH }}{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
+{% else %}
+  <a class="disabled">&nbsp;</a>
+{% endif %}
+</div>

@@ -2,7 +2,6 @@
 layout: post
 title: "The Age of Distractions"
 tagline: Also known as the age of contractions
-showtitle: true
 tags: [thoughts]
 ---
 {% include JB/setup %}

@@ -2,7 +2,6 @@
 layout: post
 title: "Foundation Series"
 tagline: "Analysis of the best Sci-Fi book"
-showtitle: true
 tags: [book, thoughts]
 ---
 {% include JB/setup %}

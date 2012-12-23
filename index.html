@@ -1,48 +1,47 @@
 ---
-title: dfeng
+title: Blog
 layout: page
 ---
 {% include JB/setup %}
 
 <div class="posts">
 {% for post in paginator.posts %}
+  {% if post.bigpicture %}
+  <div class="post bigpicture">
+  {% else %}
   <div class="post">
-    {% if post.showtitle %}
+  {% endif %}
     <h1 class="title">
       <a href="{{ post.url }}">{{ post.title }}</a>
     </h1>
-    {% endif %}
-    {{ post.content }}
-    <div class="post-detail">
-      <!--<div class="date">
-        {{ post.date | date: "%B %d, %Y" }} / comments
-      </div>-->
-      <div class="post-tags">
-        {% assign tags_list = post.tags %}
-        <ul>
-          {% include JB/tags_list %}
-        </ul>
-      </div>
+    <div class="date">
+      {{ post.date | date: "%B %d, %Y" }}
     </div>
-    <!-- <div class="flourish"><i class="icon-fire"></i></div> -->
+    {{ post.content }}
+    <div class="post-tags">
+      {% assign tags_list = post.tags %}
+      <ul>
+        {% include JB/tags_list %}
+      </ul>
+      <div id="menudivider"></div>
+    </div>
   </div>
-  <!-- <div class="flourish">∞<div class="laser"></div></div> -->
 {% endfor %}
 </div>
 
-<ul class="pager">
+<div class="paginator">
 {% if paginator.next_page %}
-  <li class="previous">
-    <a href="/page{{ paginator.next_page }}/">&larr; Older</a>
-  </li>
+<a href="/page{{ paginator.next_page }}/">&larr; Older</a>
+{% else %}
+<a class="disabled" href="#">&nbsp;</a>
 {% endif %}
 {% if paginator.previous_page %}
-  <li class="next">
-  {% if paginator.previous_page == 1 %}
-    <a href="/">Newer &rarr;</a>
-  {% else %}
-    <a href="/page{{ paginator.previous_page }}/">Newer &rarr;</a>
-  {% endif %}
-  </li>
+{% if paginator.previous_page == 1 %}
+<a class="next" href="/">Newer &rarr;</a>
+{% else %}
+<a class="next" href="/page{{ paginator.previous_page }}/">Newer &rarr;</a>
 {% endif %}
-</ul>
+{% else %}
+<a class="disabled" href="#">&nbsp;</a>
+{% endif %}
+</div>
