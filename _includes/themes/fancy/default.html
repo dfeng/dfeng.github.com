@@ -35,11 +35,32 @@
       }
     });
     $(document).ready(function(){
+      // fix margins of posts with big pictures
       $('.bigpicture > *:not(:has(img))').css({
         "width": "600px",
         "margin-left": "auto",
         "margin-right": "auto"
       });
+      // audio tags
+      $('a[href$=".mp3"]').each(function(){
+        $(this).replaceWith("<audio><source src='"+$(this).attr("href")+"' type='audio/mpeg'></source></audio><a class='audio' href='play'><i class='icon-play'></i></a>");
+      });
+      $('.audio').on('click', function(e){
+        e.preventDefault();
+        // alert(1);
+        audio = $(this).prev().get(0);
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      });
+      $('audio').on('play',function() {
+        $(this).next().children(0).attr('class', 'icon-pause');
+      }).on('pause ended', function() {
+        $(this).next().children(0).attr('class', 'icon-play');    
+      });   
+      // $('audio').parent().css("text-align", "center");
     });
     </script>
   </head>

@@ -7,6 +7,6 @@ tags: [photography]
 ---
 {% include JB/setup %}
 
-![](/images/tree.jpg)
+![](/media/tree.jpg)
 
 Christmas@Yale. Joyous times.
