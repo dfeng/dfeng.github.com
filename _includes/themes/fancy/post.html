@@ -1,14 +1,19 @@
 {% if page.bigpicture %}
-<div class="post bigpicture">
+<div class="post big-picture">
+{% elsif page.bigquote %}
+<div class="post big-quote">
 {% else %}
 <div class="post">
 {% endif %}
+  {% if page.hidetitle %}
+  {% else %}
   <h1 class="title">
     <a href="{{ page.url }}">{{ page.title }}</a>
   </h1>
   <div class="date">
     {{ page.date | date: "%B %d, %Y" }}
   </div>
+  {% endif %}
   {{ content }}
   <div class="post-tags">
     {% assign tags_list = page.tags %}

@@ -134,15 +134,32 @@ header {
   font-family: 'Varela Round';
   font-size: 14px;
 }
-.post:not(.bigpicture) {
+.post:not([class*="big-"]) {
   width: 650px;
   margin-left: auto;
   margin-right: auto;
 }
-.bigpicture {
+[class*="big-"] {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+}
+.big-quote blockquote {
+  border: none;
+}
+.big-quote blockquote p {
+  font-family: "Playfair Display";
+  line-height: 1.5em;
+  letter-spacing: 1px;
+  font-size: 36px;
+  color: #121212;
+  font-style: italic;
+}
+.big-quote blockquote p:before {
+  content: "“";
+}
+.big-quote blockquote p:after {
+  content: "”";
 }
 .date {
   font-style: italic;
@@ -165,7 +182,6 @@ pre {
   border-radius: 0px;
   border: none;
 }
-
 .post-tags {
   width: 100%;
   text-align: center;
@@ -191,4 +207,36 @@ pre {
   font-family: "Varela Round";
   text-transform: uppercase;
   font-size: 11px;
+}
+[class^="icon-"] {
+  opacity: 0.5;
+}
+.carousel {
+  overflow: hidden;
+}
+.carousel-controls {
+  font-family: "Verdana";
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 50px;
+  height: 100%;
+  width: 30%;
+  border: none;
+  opacity: 0;
+  font-size: 80px;
+  font-weight: 100;
+  line-height: 550px;
+  text-align: left;
+}
+.carousel-controls:hover {
+  opacity: 0.4;
+  color: white;
+  text-decoration: none;
+}
+.carousel-controls.right {
+  text-align: right;
+  left: auto;
+  right: 0;
 }

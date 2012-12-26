@@ -16,6 +16,7 @@
     code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit; color: inherit;}
     </style>
     <script type="text/javascript" src="{{ ASSET_PATH }}/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script>
     <script src="{{ ASSET_PATH }}/js/filters.min.js" type="text/javascript"></script>
     <script type="text/javascript"
       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -36,7 +37,12 @@
     });
     $(document).ready(function(){
       // fix margins of posts with big pictures
-      $('.bigpicture > *:not(:has(img))').css({
+      $('.big-picture > *:not(:has(img))').css({
+        "width": "600px",
+        "margin-left": "auto",
+        "margin-right": "auto"
+      });
+      $('.big-quote > *:not(blockquote)').css({
         "width": "600px",
         "margin-left": "auto",
         "margin-right": "auto"
@@ -45,19 +51,8 @@
       $('a[href$=".mp3"]').each(function(){
         $(this).replaceWith("<audio><source src='"+$(this).attr("href")+"' type='audio/mpeg'></source></audio><a class='audio' href='play'><i class='icon-play'></i></a>");
       });
-      /*$('.audio').each(function(){
-        audio = $(this).attr("href");
-        $(this).jPlayer("setMedia", {
-          mp3: audio
-        })
-        $(this).on('click', function(e){
-          e.preventDefault();
-          $(this).jPlayer("play")
-        });
-      });*/
       $('.audio').on('click', function(e){
         e.preventDefault();
-        // alert(1);
         audio = $(this).prev().get(0);
         if (audio.paused) {
           audio.play();
@@ -70,7 +65,17 @@
       }).on('pause ended', function() {
         $(this).next().children(0).attr('class', 'icon-play');    
       });
-      // $('audio').parent().css("text-align", "center");
+      // carousel js
+      $(".post").each(function(i){
+        if ($("img").length > 1) {
+          $("img", this).wrap("<div class='item'>")
+          $(".item", this).eq(0).addClass("active").end().wrapAll("<div class='carousel slide' id='carousel"+i+"'><div class='carousel-inner'>");
+          $(".carousel", this).append('<a class="left carousel-controls" href="#carousel'+i+'" data-slide="prev">‹</a>\n<a class="right carousel-controls" href="#carousel'+i+'" data-slide="next">›</a>')
+        }
+      })
+      $('.carousel').carousel({
+        'interval': false
+      });
     });
     </script>
   </head>

@@ -7,16 +7,21 @@ layout: page
 <div class="posts">
 {% for post in paginator.posts %}
   {% if post.bigpicture %}
-  <div class="post bigpicture">
+  <div class="post big-picture">
+  {% elsif post.bigquote %}
+  <div class="post big-quote">
   {% else %}
   <div class="post">
   {% endif %}
+    {% if post.hidetitle %}
+    {% else %}
     <h1 class="title">
       <a href="{{ post.url }}">{{ post.title }}</a>
     </h1>
     <div class="date">
       {{ post.date | date: "%B %d, %Y" }}
     </div>
+    {% endif %}
     {{ post.content }}
     <div class="post-tags">
       {% assign tags_list = post.tags %}

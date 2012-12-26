@@ -7,6 +7,6 @@ tags: [photography]
 ---
 {% include JB/setup %}
 
-![](/media/snow.jpg)
+![](/img/snow.jpg)
 
 Snow is fun.
