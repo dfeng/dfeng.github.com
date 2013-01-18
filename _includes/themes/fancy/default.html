@@ -7,7 +7,7 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400italic|Varela+Round' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400italic|Varela+Round|Alegreya:400italic,400' rel='stylesheet' type='text/css'>
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
     <link href="{{ ASSET_PATH }}/css/font.css" rel="stylesheet" type="text/css" media="all">
@@ -48,23 +48,33 @@
         "margin-right": "auto"
       });
       // audio tags
-      $('a[href$=".mp3"]').each(function(){
-        $(this).replaceWith("<audio><source src='"+$(this).attr("href")+"' type='audio/mpeg'></source></audio><a class='audio' href='play'><i class='icon-play'></i></a>");
+      $('a[href^="/media/"]').each(function(){
+        $(this).replaceWith("<audio><source src='"+$(this).attr("href")+".ogg' type='audio/ogg; codecs=\"vorbis\"'></source><source src='"+$(this).attr("href")+".mp3' type='audio/mpeg'></source></audio><div class='music-bar'><a class='audio' href='play'><i class='icon-play'></i></a><div class='music-time'></div></div>");
       });
       $('.audio').on('click', function(e){
         e.preventDefault();
-        audio = $(this).prev().get(0);
+        var audio = $(this).parent().prev().get(0);
         if (audio.paused) {
           audio.play();
         } else {
           audio.pause();
         }
       });
-      $('audio').on('play',function() {
-        $(this).next().children(0).attr('class', 'icon-pause');
-      }).on('pause ended', function() {
-        $(this).next().children(0).attr('class', 'icon-play');    
-      });
+      $('audio').on('play', function() {
+        $(this).next().children('a').children().attr('class', 'icon-pause');
+        audio = $(this).get(0);
+        pos = (audio.currentTime / audio.duration) * 650;
+        timeleft = audio.duration - audio.currentTime
+        rem = 650 - pos;
+        $(this).next().children('div').animate({marginLeft: "+="+rem}, 1000 * timeleft, 'linear');
+      }).on('pause', function() {
+        $(this).next().children('a').children().attr('class', 'icon-play');
+        $(this).next().children('div').stop();
+      }).on('ended', function() {
+        $(this).next().children('a').children().attr('class', 'icon-play');
+        $(this).next().children('div').css('margin-left', "-650px");
+      })
+
       // carousel js
       $(".post").each(function(i){
         if ($("img").length > 1) {
@@ -75,7 +85,21 @@
       })
       $('.carousel').carousel({
         'interval': false
+      }).on('slid', function(){
+        // don't make it loop
+        var index = $(this).find(".active").index()
+        var len = $(this).find(".item").length
+        if (index == 0) {
+          $(this).find(".left").hide()
+          $(this).find(".right").show()
+        } else if (index == len - 1) {
+          $(this).find(".right").hide()
+          $(this).find(".left").show()
+        } else {
+          $(this).find(".right, .left").show()
+        }
       });
+      $('.carousel .item').index($('.active'))
     });
     </script>
   </head>

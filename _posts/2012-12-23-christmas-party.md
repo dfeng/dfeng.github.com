@@ -10,4 +10,4 @@ tags: [photography]
 ![](/img/tree.jpg)
 ![](/img/ctree.jpg)
 
-Christmas@Yale. Joyous times.
+Christmas@Yale. Joyful times.

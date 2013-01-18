@@ -23,10 +23,15 @@ group: navigation
 .filter-posts div {
   float: left;
   display: block;
-  width: 300px;
+  width: 285px;
   height: 110px;
-  /*padding-right: 20px;*/
   font-size: 14px;
+}
+.filter-posts div:nth-child(odd) {
+  padding-right: 15px;
+}
+.filter-posts div:nth-child(even) {
+  padding-left: 15px;
 }
 .filter-posts span {
   display: block;

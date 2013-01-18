@@ -39,7 +39,7 @@ header {
 #first {
   text-align: center;
   font-family: 'Andrade Pro';
-  font-size: 40px;
+  font-size: 35px;
   margin-bottom: 30px;
 }
 #first a:hover {
@@ -221,13 +221,13 @@ pre {
   left: 0;
   margin: 0;
   padding: 50px;
+  padding-top: 30%;
   height: 100%;
   width: 30%;
   border: none;
   opacity: 0;
   font-size: 80px;
   font-weight: 100;
-  line-height: 550px;
   text-align: left;
 }
 .carousel-controls:hover {
@@ -235,8 +235,31 @@ pre {
   color: white;
   text-decoration: none;
 }
+.carousel-controls.left {
+  display: none;
+}
 .carousel-controls.right {
   text-align: right;
   left: auto;
   right: 0;
+}
+
+/* Music Player */
+.audio {
+  margin-left: 3px;
+}
+.music-bar {
+  position: relative;
+  height: 25px;
+  overflow: hidden;
+}
+.music-time {
+  z-index: -1;
+  background-color: #EEE;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 100%;
+  margin-left:-650px;
 }
