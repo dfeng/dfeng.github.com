@@ -1,10 +1,10 @@
 /* General */
 
 a {
-  color: black;
+  color: #222;
 }
 a:hover {
-  color: black;
+  color: #222;
 }
 body {
   font-family: 'Georgia';
@@ -173,7 +173,7 @@ blockquote p {
   font-style: italic;
 }
 code, pre {
-  font-family: "Menlo";
+  font-family: "Menlo", "Monaco", "Consolas", monospace;
   font-size: 12px;
 }
 pre {
