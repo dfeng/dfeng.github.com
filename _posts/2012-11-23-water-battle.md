@@ -4,7 +4,6 @@ title: "Water Battle"
 tagline: "Puzzle from the 1987 Canadian Maths Olympiad"
 tags: [puzzle]
 ---
-{% include JB/setup %}
 
 A short, nice puzzle from [here][1], which appeared on the 1987 Canadian Mathematical Olympiad.
 

@@ -4,7 +4,6 @@ title: "Goblin Chase Puzzle"
 tags: [puzzle]
 tagline: "Tricky puzzle about being chased by goblins"
 ---
-{% include JB/setup %}
 
 Below is the puzzle, taken from [here](http://domino.watson.ibm.com/Comm/wwwr_ponder.nsf/challenges/May2001.html):
 

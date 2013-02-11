@@ -4,7 +4,6 @@ title: "Albert Camus"
 tags: [philosophy]
 tagline: "Absurdism and the Stranger"
 ---
-{% include JB/setup %}
 
 Regarding the Absurd, the venerable source (aka Wikipedia) states:
 

@@ -5,7 +5,6 @@ tagline: "A beautiful arrangment"
 bigpicture: false
 tags: [music]
 ---
-{% include JB/setup %}
 
 [Pitch Perfect](/media/pitchperfect)
 

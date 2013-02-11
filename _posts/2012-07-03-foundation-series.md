@@ -4,7 +4,6 @@ title: "Foundation Series"
 tagline: "Analysis of the best Sci-Fi book"
 tags: [book, thoughts]
 ---
-{% include JB/setup %}
 
 Have you ever read a book that speaks so accurately to your thoughts that you are convinced that the author is actually yourself? This series is that book for me (though decaying as the series progressed). The main motif of the series is 'psychohistory'. Coming across this term is like learning the name of colors for the first time. It's been an integral part of your life this whole time, but you didn't know how to convey it in words. And then one day, you come across the words, and it all makes sense; as if the words somehow give meaning to the physical concept (or in this case, theoretical notion). In brief, psychohistory is the application of statistics to society; the intersection of the cold, austere realm that is mathematics with the torture of a manic reality; finding equations, patterns in the chaos of life. Things of this nature have always fascinated me. Coincidentally, I had recently watched a [TED talk](http://www.ted.com/talks/jean_baptiste_michel_the_mathematics_of_history.html) about this very concept - though, there was no mention of Asimov, and it was a rather simplified application in a single arena (warfare). Comparatively, Asimov's ideas are so sweeping in their ambition and subtle in their beauty.
 

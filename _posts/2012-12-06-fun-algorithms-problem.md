@@ -4,7 +4,6 @@ title: "Fun Algorithms Problem"
 tagline: "Short but nice"
 tags: [puzzle, compsci]
 ---
-{% include JB/setup %}
 
 A while back, I bought the venerable book, [Introduction to Algorithms](http://www.amazon.com/Introduction-Algorithms-Electrical-Engineering-Computer/dp/0262031418). One of the first problems that I did and remembered was the following:
 

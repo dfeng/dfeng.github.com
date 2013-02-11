@@ -1,5 +1,40 @@
 ---
 layout: default
 ---
-{% include JB/setup %}
-{% include themes/fancy/post.html %}
+{% if page.bigpicture %}
+<div class="post big-picture">
+{% elsif page.bigquote %}
+<div class="post big-quote">
+{% else %}
+<div class="post">
+{% endif %}
+  {% if page.hidetitle %}
+  {% else %}
+  <h1 class="title">
+    <a href="{{ page.url }}">{{ page.title }}</a>
+  </h1>
+  <div class="date">
+    {{ page.date | date: "%B %d, %Y" }}
+  </div>
+  {% endif %}
+  {{ content }}
+  <div class="post-tags">
+    {% assign tags_list = page.tags %}
+    <ul>
+      {% include tags %}
+    </ul>
+    <div id="menudivider"></div>
+  </div>
+</div>
+<div class="paginator">
+{% if page.previous %}
+  <a class="previous" href="{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
+{% else %}
+  <a class="disabled"></a>
+{% endif %}
+{% if page.next %}
+  <a class="next" href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
+{% else %}
+  <a class="disabled"></a>
+{% endif %}
+</div>

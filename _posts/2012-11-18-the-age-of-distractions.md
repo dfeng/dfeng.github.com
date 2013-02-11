@@ -4,7 +4,6 @@ title: "The Age of Distractions"
 tagline: Also known as the age of contractions
 tags: [thoughts]
 ---
-{% include JB/setup %}
 
 Recently, I came across the following [article](http://joekraus.com/were-creating-a-culture-of-distraction). While it is only the umpteenth article I've read denouncing today's world of technological distractions[^1], it gave me the (somewhat ironic, I know) desire to pen my own feelings on this subject.
 
