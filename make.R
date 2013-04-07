@@ -3,28 +3,29 @@ base <- "/Users/dfeng/dfeng.github.com/"
 rmds <- "_Rmd"
 setwd(base)
 
-require(knitr)
-render_jekyll(highlight="pygments")
-opts_knit$set(base.url="/")
-
-# Once we finish knitting a file, we shall prepend Processed to the filename
-
-# restrict to .Rmd without the 'Processed' prefix
-files <- dir(rmds, pattern="^[^P]*.Rmd", full.names=TRUE)
+# manually files
+filename <- "2013-04-06-area-determination-of-property-images.Rmd"
 
 # path for folders
 figs.path <- "img/"
 posts.path <- "_posts/"
 
-for (file in files) {
-  # set filepath
-  fig.path <- paste0(figs.path, sub(".Rmd$", "", basename(file)), "/")
-  opts_chunk$set(fig.path=fig.path)
+require(knitr)
+render_jekyll(highlight="pygments")
+opts_knit$set(base.url="/")
 
-  # suppress messages
-  opts_chunk$set(prompt=F, tidy=T, cache=F, warning=F, message=F)
+# restrict to .Rmd without the 'Processed' prefix
+# files <- dir(rmds, pattern="^[^P]*.Rmd", full.names=TRUE)
 
-  out.file <- basename(knit(file))
-  file.rename(out.file, paste0(posts.path, out.file))
-  # file.rename(file, paste0(rmds, "Processed-", file))
-}
+file <- paste0(rmds, "/", filename)
+
+# set filepath
+fig.path <- paste0(figs.path, sub(".Rmd$", "", basename(file)), "/")
+opts_chunk$set(fig.path=fig.path)
+
+# suppress messages
+opts_chunk$set(cache=F, warning=F, message=F, cache.path="_cache/", tidy=F)
+
+out.file <- basename(knit(file))
+file.rename(out.file, paste0(posts.path, out.file))
+# file.rename(file, paste0(rmds, "Processed-", file))

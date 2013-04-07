@@ -16,20 +16,18 @@ knit('file.Rmd')
 In your .Rmd file, instead of displaying code (using the liquid templates + pygments)
 
 {% raw %}
-	{% highlight r %}
-	library(knitr)
-	{% endhighlight %}
+    {% highlight r %}
+    library(knitr)
+    {% endhighlight %}
 {% endraw %}
 
 we now have
 
-<pre>
-```{r}
-library(knitr)
-```
-</pre>
+    ```{r}
+    library(knitr)
+    ```
 
-That's it, basically. You will probably want to set up some options (such as defining a path for images). I have created a .R file to automate everything for this blog, which you can find [here](/make.R).
+That's it, basically. You will probably want to set up some options (such as defining a path for images). I have created a .R file to automate everything for this blog, which you can find [here](https://github.com/dfeng/dfeng.github.com/blob/master/make.R).
 
 Helpful resources:
  - jfisher's blog [post][1]
