@@ -1,21 +1,27 @@
+
+# set directory of jekyll blog
 base <- "/Users/dfeng/dfeng.github.com/"
 # set the directory to where your Rmd's reside
 rmds <- "_Rmd"
 setwd(base)
 
-# manually files
+# set name of file
 filename <- "2013-04-06-area-determination-of-property-images.Rmd"
+
+# Previous version would loop through folder
+# But I never need to do that. One file at a time
+  # restrict to .Rmd without the 'Processed' prefix
+  # files <- dir(rmds, pattern="^[^P]*.Rmd", full.names=TRUE)
+
 
 # path for folders
 figs.path <- "img/"
 posts.path <- "_posts/"
 
+# start
 require(knitr)
 render_jekyll(highlight="pygments")
 opts_knit$set(base.url="/")
-
-# restrict to .Rmd without the 'Processed' prefix
-# files <- dir(rmds, pattern="^[^P]*.Rmd", full.names=TRUE)
 
 file <- paste0(rmds, "/", filename)
 
