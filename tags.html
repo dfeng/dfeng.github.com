@@ -7,6 +7,9 @@ group: navigation
 .filters {
   text-align: center;
 }
+.filter {
+  margin-top: 10px !important;
+}
 .filter a {
   color: #999;
 }
@@ -14,16 +17,18 @@ group: navigation
   color: #222 !important;
 }
 .filter-posts {
-  margin-top: 40px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   width: 600px;
+  position: relative;
+  clear: both;
 }
 .filter-posts div {
   float: left;
   display: block;
   width: 285px;
-  height: 110px;
+  height: 90px;
   font-size: 14px;
 }
 .filter-posts div:nth-child(odd) {
@@ -35,8 +40,13 @@ group: navigation
 .filter-posts span {
   display: block;
 }
+.filter-posts .title {
+  font-size: 18px;
+  letter-spacing: normal;
+}
 .filter-posts .date {
   margin-bottom: 0px;
+  font-size: 12px
 }
 .filter-posts .tagline {
   color: #777;

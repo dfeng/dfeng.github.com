@@ -1,8 +1,8 @@
 permalink: /:year/:title
-exclude: ["README.md"]
+exclude: ["README.md", "Rmd"]
 auto: true
 pygments: true
 paginate: 5
 
 title : What Would Hartigan Do?
-tagline: "learning through skepticism"
+tagline: Question. Everything.

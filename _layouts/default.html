@@ -76,8 +76,8 @@
       })
 
       // carousel js
-      $(".post").each(function(i){
-        if ($("img").length > 1) {
+      $(".post").filter(".big-picture").each(function(i){
+        if ($("img", this).length > 1) {
           $("img", this).wrap("<div class='item'>")
           $(".item", this).eq(0).addClass("active").end().wrapAll("<div class='carousel slide' id='carousel"+i+"'><div class='carousel-inner'>");
           $(".carousel", this).append('<a class="left carousel-controls" href="#carousel'+i+'" data-slide="prev">‹</a>\n<a class="right carousel-controls" href="#carousel'+i+'" data-slide="next">›</a>')

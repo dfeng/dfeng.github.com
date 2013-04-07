@@ -1,0 +1,1216 @@
+i=1
+traits <- sample(0:1, n, replace=TRUE)#
+  SNP <- factor(c(1*(traits[1:(n*0.3)]==0)+1, sample(1:3, n*0.96, replace=TRUE)))#
+  sf <- summary(lm(traits~SNP))$fstat
+SNP <- factor(c(1*(traits[1:(n*0.3)]==0)+1, sample(1:3, n*0.7, replace=TRUE)))#
+  sf <- summary(lm(traits~SNP))$fstat
+summary(lm(traits~SNP))
+summary(lm(traits~SNP))$R.s
+summary(lm(traits~SNP))$r.sq
+pvals <- numeric(m)#
+rs <- numeric(m)#
+# let SNP be 1,2,3. and 1 corresponds to no trait, 2 and 3 correspond to trait#
+for (i in 1:m) {#
+  traits <- sample(0:1, n, replace=TRUE)#
+  SNP <- factor(c(1*(traits[1:(n*0.1)]==0)+1, sample(1:3, n*0.9, replace=TRUE)))#
+  rs[i] <- summary(lm(traits~SNP))$r.sq#
+  sf <- summary(lm(traits~SNP))$fstat#
+  pvals[i] <- 1 - pf(sf[1], sf[2], sf[3])#
+}
+rs
+mean(pvals < 0.05)
+ummary(lm(traits~SNP))
+summary(lm(traits~SNP))
+traits
+cbind(traits, SNP)
+names(summary(lm(traits~SNP))
+)
+names(lm(traits~SNP)
+)
+lm(traits~SNP)$effects
+lm(traits~SNP)$model
+lm(traits~SNP)$res
+sqrt(0.05)
+sqrt(0.04)
+pvals <- numeric(m)#
+rs <- numeric(m)#
+# let SNP be 1,2,3. and 1 corresponds to no trait, 2 and 3 correspond to trait#
+for (i in 1:m) {#
+  traits <- sample(0:1, n, replace=TRUE)#
+  SNP <- factor(c(1*(traits[1:(n*0.2)]==0)+1, sample(1:3, n*0.8, replace=TRUE)))#
+  rs[i] <- summary(lm(traits~SNP))$r.sq#
+  sf <- summary(lm(traits~SNP))$fstat#
+  pvals[i] <- 1 - pf(sf[1], sf[2], sf[3])#
+}#
+mean(pvals < 0.05)#
+pow
+n <- 200#
+#
+k <- 3#
+v <- 0.04#
+crit <- qf(0.95, k-1, n-k)#
+ncp <- v / (1 - v) * (n-1) / 2#
+pow <- 1 - pf(crit, k-1, n-k, ncp)#
+#
+m <- 1E2 # number of simulations#
+#
+pvals <- numeric(m)#
+rs <- numeric(m)#
+# let SNP be 1,2,3. and 1 corresponds to no trait, 2 and 3 correspond to trait#
+for (i in 1:m) {#
+  traits <- sample(0:1, n, replace=TRUE)#
+  SNP <- factor(c(1*(traits[1:(n*0.2)]==0)+1, sample(1:3, n*0.8, replace=TRUE)))#
+  rs[i] <- summary(lm(traits~SNP))$r.sq#
+  sf <- summary(lm(traits~SNP))$fstat#
+  pvals[i] <- 1 - pf(sf[1], sf[2], sf[3])#
+}#
+mean(pvals < 0.05)#
+pow
+pvals <- numeric(m)#
+rs <- numeric(m)#
+# let SNP be 1,2,3. and 1 corresponds to no trait, 2 and 3 correspond to trait#
+for (i in 1:m) {#
+  traits <- sample(0:1, n, replace=TRUE)#
+  SNP <- factor(c(1*(traits[1:(n*0.1)]==0)+1, sample(1:3, n*0.9, replace=TRUE)))#
+  rs[i] <- summary(lm(traits~SNP))$r.sq#
+  sf <- summary(lm(traits~SNP))$fstat#
+  pvals[i] <- 1 - pf(sf[1], sf[2], sf[3])#
+}#
+mean(pvals < 0.05)#
+pow
+summary(lm(traits~SNP))
+args(pf)
+runs <- 1E3#
+n <- 3#
+m <- 1E1#
+thetas <- (1:m)/m#
+#
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    res <- rbind(res, data.frame(n=n, MLE=se.mle,#
+                                 ALT=se.alt, BAY=se.bays))#
+}
+res
+alts
+bays
+t.test(alts,bayes,paired=T)
+t.test(alts,bays,paired=T)
+names(t.test(alts,bays,paired=T))
+t.test(alts,bays,paired=T)$est
+runs <- 1E3#
+n <- 3#
+m <- 1E1#
+thetas <- (1:m)/m#
+#
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    test.ab <- t.test(alts, bayes)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(n=n,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 TESTAB=pv.ab))#
+}
+runs <- 1E3#
+n <- 3#
+m <- 1E1#
+thetas <- (1:m)/m#
+#
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    test.ab <- t.test(alts, bays, paired=T)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(n=n,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 TESTAB=pv.ab))#
+}
+?t.test
+res
+runs <- 1E4#
+n <- 3#
+m <- 1E1#
+thetas <- (1:m)/m#
+#
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    test.ab <- t.test(alts, bays, paired=T)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(n=n,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 TESTAB=pv.ab))#
+}
+res
+runs <- 1E2#
+n <- 3#
+m <- 1E1#
+thetas <- (1:m)/m#
+#
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    test.ab <- t.test(alts, bays, paired=T)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(n=n,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 TESTAB=pv.ab))#
+}
+res
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    test.ab <- t.test(alts, bays, paired=T)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(theta=theta,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 TESTAB=pv.ab))#
+}
+res
+seq(8,10,0.2)
+runs <- 1E2#
+n <- 3#
+thetas <- seq(8,10,0.2)#
+#
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    test.ab <- t.test(alts, bays, paired=T)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(theta=theta,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 TESTAB=pv.ab))#
+}
+res
+runs <- 1E2#
+n <- 3#
+thetas <- seq(.8,.10,0.02)#
+#
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    test.ab <- t.test(alts, bays, paired=T)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(theta=theta,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 TESTAB=pv.ab))#
+}
+thetas <- seq(.8,1,0.02)#
+#
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    test.ab <- t.test(alts, bays, paired=T)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(theta=theta,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 TESTAB=pv.ab))#
+}
+res
+thetas <- seq(.7,1,0.02)#
+#
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    test.ab <- t.test(alts, bays, paired=T)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(theta=theta,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 TESTAB=pv.ab))#
+}
+res
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), BAY2=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    bays2 <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        bay2 <- (mle^(2-n)-1) / (mle^(1-n)-1) * (n-1) / (n-2)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+        bays2 <- c(bays2, bay2)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    se.bays2 <- mean((bays2 - theta)^2)#
+    test.ab <- t.test(alts, bays, paired=T)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(theta=theta,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 BAY2=se.bays2,#
+                                 TESTAB=pv.ab))#
+}
+res
+maxsim <- function(size, nsim=10000, truth=1) {#
+maxs <- rep(NA, nsim)#
+for(k in 1:nsim) {#
+maxs[k] <- max(runif(size, max=truth))#
+}#
+alts <- maxs*(size+1)/size#
+return((maxs-truth)^2-(alts-truth)^2)#
+}
+maxsim(3)
+density(maxsim(3))
+plot(density(maxsim(3)))
+runs <- 1E2#
+n <- 3#
+thetas <- seq(.7,1,0.02)#
+#
+res <- data.frame(theta=numeric(), MLE=numeric(), ALT=numeric(), BAY=numeric(), BAY2=numeric(), TESTAB=numeric())#
+for (theta in thetas) {#
+    x <- runif(n * runs, 0, theta)#
+    d <- seq_along(x)#
+    x.groups <- split(x, ceiling(d/n))#
+    mles <- c()#
+    alts <- c()#
+    bays <- c()#
+    bays2 <- c()#
+    for (i in 1:runs) {#
+        mle <- max(unlist(x.groups[i]))#
+        alt <- (n+1)/n * mle#
+        bay <- min(1, alt)#
+        bay2 <- (mle^(2-n)-1) / (mle^(1-n)-1) * (n-1) / (n-2)#
+        mles <- c(mles, mle)#
+        alts <- c(alts, alt)#
+        bays <- c(bays, bay)#
+        bays2 <- c(bays2, bay2)#
+    }#
+    se.mle <- mean((mles - theta)^2)#
+    se.alt <- mean((alts - theta)^2)#
+    se.bays <- mean((bays - theta)^2)#
+    se.bays2 <- mean((bays2 - theta)^2)#
+    test.ab <- t.test((alts-theta)^2, (bays-theta)^2, paired=T)#
+    pv.ab <- test.ab$p.v#
+    res <- rbind(res, data.frame(theta=theta,#
+                                 MLE=se.mle,#
+                                 ALT=se.alt,#
+                                 BAY=se.bays,#
+                                 BAY2=se.bays2,#
+                                 TESTAB=pv.ab))#
+}
+res
+plot(res$BAY, res$BAY2)
+plot(res$BAY)
+lines(res$BAY2)
+n <- 100#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+fi <- function(x) {#
+    (c / x)^(1 / n)#
+}#
+#
+x <- runif(n)#
+fi(x)
+n <- 100#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+fi <- function(x) {#
+    ((x+(1-n)*c*m^(1-n)) / c / (1-n))^(1 / (1 - n))#
+}#
+#
+x <- runif(n)#
+fi(x)
+n <- 10#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+fi <- function(x) {#
+    ((x+(1-n)*c*m^(1-n)) / c / (1-n))^(1 / (1 - n))#
+}#
+#
+x <- runif(n)#
+fi(x)
+fi <- function(x) {#
+    ((x+(1-n)*c*m^(1-n)) / c / (1-n))^(1 / (1 - n))#
+}
+fi(1)
+fi(1)-m
+F <- function(x) {#
+    (1-n) * c * x^(1-n) - (1-n)*c*m^(1-n)#
+}
+F(1)
+F(1)-F(m)
+F(m)
+F <- function(x) {#
+    c / (1-n) * x^(1-n) -c / (1-n) *m^(1-n)#
+}
+F(1)
+n <- 10#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+F <- function(x) {#
+    c / (1-n) * x^(1-n) -c / (1-n) *m^(1-n)#
+}#
+Fi <- function(x) {#
+    ((x+c/(1-n)*m^(1-n)) / c * (1-n))^(1 / (1 - n))#
+}#
+#
+x <- runif(n)#
+Fi(x)
+n <- 1000#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+# using the uniform distribution#
+#
+F <- function(x) {#
+    c / (1-n) * x^(1-n) -c / (1-n) *m^(1-n)#
+}#
+Fi <- function(x) {#
+    M <- c/(1-n)*m^(1-n)#
+    ((x+M) / c * (1-n))^(1 / (1 - n))#
+}#
+#
+x <- runif(n)#
+y <- Fi(x)
+plot(density(y))
+y
+n <- 10#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+# using the uniform distribution#
+#
+F <- function(x) {#
+    c / (1-n) * x^(1-n) -c / (1-n) *m^(1-n)#
+}#
+Fi <- function(x) {#
+    M <- c/(1-n)*m^(1-n)#
+    ((x+M) / c * (1-n))^(1 / (1 - n))#
+}#
+#
+x <- runif(n)#
+y <- Fi(x)
+y
+n <- 100#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+# using the uniform distribution#
+#
+F <- function(x) {#
+    c / (1-n) * x^(1-n) -c / (1-n) *m^(1-n)#
+}#
+Fi <- function(x) {#
+    M <- c/(1-n)*m^(1-n)#
+    ((x+M) / c * (1-n))^(1 / (1 - n))#
+}#
+#
+x <- runif(n)#
+y <- Fi(x)
+y
+n <- 1000#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+# using the uniform distribution#
+#
+F <- function(x) {#
+    c / (1-n) * x^(1-n) -c / (1-n) *m^(1-n)#
+}#
+Fi <- function(x) {#
+    M <- c/(1-n)*m^(1-n)#
+    ((x+M) / c * (1-n))^(1 / (1 - n))#
+}#
+#
+x <- runif(n)#
+y <- Fi(x)
+y
+x
+Fi(x[1])
+M <- c/(1-n)*m^(1-n)#
+M
+c
+n <- 1000#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+# using the uniform distribution#
+#
+F <- function(x) {#
+    c / (1-n) * x^(1-n) -c / (1-n) *m^(1-n)#
+}#
+Fi <- function(i) {#
+    M <- c/(1-n)*m^(1-n)#
+    ((i+M) / c * (1-n))^(1 / (1 - n))#
+}#
+#
+x <- runif(n)#
+y <- Fi(x)
+plot(density(y))
+y
+n <- 100#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+# using the uniform distribution#
+#
+F <- function(x) {#
+    c / (1-n) * x^(1-n) -c / (1-n) *m^(1-n)#
+}#
+Fi <- function(i) {#
+    M <- c/(1-n)*m^(1-n)#
+    ((i+M) / c * (1-n))^(1 / (1 - n))#
+}#
+#
+x <- runif(n)#
+y <- Fi(x)#
+plot(density(y))
+library(ggplot2)#
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(sd=0.1, mean=0.420))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(sd=10, mean=0.420))
+qplot(y, geom="density")
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(sd=1, mean=0.420))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(sd=4, mean=0.420))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(sd=10, mean=0.420))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(sd=7, mean=0.420))
+n <- 100#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+# using the uniform distribution#
+#
+F <- function(x) {#
+    c / (1-n) * x^(1-n) -c / (1-n) *m^(1-n)#
+}#
+Fi <- function(i) {#
+    M <- c/(1-n)*m^(1-n)#
+    ((i+M) / c * (1-n))^(1 / (1 - n))#
+}#
+#
+x <- runif(n)#
+y <- Fi(x)#
+plot(density(y))
+n <- 10#
+m <- 0.4182#
+c <- (n-1) * m^(n-1) / (1 - m^(n-1))#
+#
+# using the uniform distribution#
+#
+F <- function(x) {#
+    c / (1-n) * x^(1-n) -c / (1-n) *m^(1-n)#
+}#
+Fi <- function(i) {#
+    M <- c/(1-n)*m^(1-n)#
+    ((i+M) / c * (1-n))^(1 / (1 - n))#
+}#
+#
+sims <- 1E3#
+x <- runif(sims)#
+y <- Fi(x)#
+plot(density(y))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(sd=1, mean=0.420))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(sd=10, mean=0.420))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(sd=10, mean=0.5))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(mean=0.5, sd=10))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(mean=0.5, sd=0.3))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(mean=0.5, sd=0.1))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(mean=0.42, sd=0.01))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(mean=0.42, sd=0.05))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(mean=0.42, sd=0.03))
+qplot(y, geom="density")+stat_function(fun = dnorm, linetype="longdash", arg=list(mean=0.43, sd=0.03))
+x=3
+size=20
+size=20#
+rows=sum(4:20)*n#
+#
+total=0#
+for (i in 4:20) {#
+	for (n in 0:(size-1)) {#
+		for (j in 1:i) {#
+			total = total + 1#
+		}#
+	}#
+}
+size=20#
+rows=sum(4:20)*n
+total=0#
+for (i in 4:20) {#
+	for (n in 0:(size-1)) {#
+		for (j in 1:i) {#
+			total = total + 1#
+		}#
+	}#
+}
+x=matrix(0,ncol=2,nrow=total)
+x
+count=1#
+for (i in 4:20) {#
+	for (n in 0:(size-1)) {#
+		s = sample(1:i,replace=F)#
+		for (j in 1:i) {#
+			x[ count, 1] = j#
+			x[ count, 2] = s[j]#
+			count = count + 1#
+		}#
+	}#
+}#
+#
+plot(x[,1],x[,2])#
+cor(x[,1],x[,2])
+?rnorm
+source("/Volumes/HDD/Documents/Work/Current/610/as10.R")
+x <- rnorm(n, mu, sqrt(1/tau))
+x
+source("/Volumes/HDD/Documents/Work/Current/610/as10.R")
+x
+mu
+tau
+?rgamma
+100 % 10
+100 %% 10
+199 %% 10
+110 %% 10
+10 %% 10
+5 %% 10
+dnorm(0)
+?seq
+xlims <- seq(-10,10,by=0.01)#
+y <- c()#
+for (x in xlims) {#
+  density <- 0#
+  for (tau in taus) {#
+    density <- density + dnorm((xbar*n*tau + kappa*xi)/(tau*n+kappa), sqrt(1 / (tau*n+kappa)))#
+  }#
+  y <- c(y, density / 1000)#
+}#
+plot(y, xlims)
+source("/Volumes/HDD/Documents/Work/Current/610/as10.R")
+xlims <- seq(-1,1,by=0.01)#
+y <- c()#
+for (x in xlims) {#
+  density <- 0#
+  for (tau in taus) {#
+    density <- density + dnorm((xbar*n*tau + kappa*xi)/(tau*n+kappa), sqrt(1 / (tau*n+kappa)))#
+  }#
+  y <- c(y, density / 1000)#
+}#
+plot(y, xlims)
+plot(xlims, y)
+xlims <- seq(-1,1,by=0.01)#
+y <- c()#
+for (x in xlims) {#
+  y <- c(y, dnorm(x))#
+}
+plot(xlims, y)
+xlims <- seq(-10,10,by=0.01)#
+y <- c()#
+for (x in xlims) {#
+  y <- c(y, dnorm(x))#
+}
+plot(xlims, y)
+length(taus)
+library(ggplot2)
+xlims <- seq(-1,1,by=0.01)#
+y <- c()#
+for (x in xlims) {#
+  density <- 0#
+  for (tau in taus) {#
+    density <- density + dnorm((xbar*n*tau + kappa*xi)/(tau*n+kappa), sqrt(1 / (tau*n+kappa)))#
+  }#
+  y <- c(y, density/length(taus))#
+}#
+library(ggplot2)#
+qplot(xlims, y, geom="line")
+taus
+y
+xlims <- seq(-1,1,by=0.01)#
+y <- c()#
+for (x in xlims) {#
+  density <- 0#
+  for (tau in taus) {#
+    density <- density + dnorm(x, (xbar*n*tau + kappa*xi)/(tau*n+kappa), sqrt(1 / (tau*n+kappa)))#
+  }#
+  y <- c(y, density/length(taus))#
+}#
+library(ggplot2)#
+qplot(xlims, y, geom="line")
+xlims <- seq(-3,3,by=0.01)#
+y <- c()#
+for (x in xlims) {#
+  density <- 0#
+  for (tau in taus) {#
+    density <- density + dnorm(x, (xbar*n*tau + kappa*xi)/(tau*n+kappa), sqrt(1 / (tau*n+kappa)))#
+  }#
+  y <- c(y, density/length(taus))#
+}#
+library(ggplot2)#
+qplot(xlims, y, geom="line")
+mean(mus)
+qplot(xlims, y, geom="line")+geom_vline(aes(xintercept=pmean)
+)
+pmean <- mean(mus)
+qplot(xlims, y, geom="line")+geom_vline(aes(xintercept=pmean))
+qplot(xlims, y, geom="line")+geom_vline(aes(xintercept=pmean), linetype="dotted")
+dlogf <- function(x) {#
+  125 / (2 + x) - (18 + 20) / (1 - x) + 34 / x#
+}#
+#
+dlogf2 <- function(x) {#
+  - 125 / (2 + x)^2 - (18 + 20) / (1 - x)^2 - 34 / x^2#
+}#
+#
+x <- c(1/2)#
+i <- 1#
+while(True) {#
+  x <- c(x, x - dlogf(x)/dlogf2(x))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.01) {#
+    break#
+  }#
+}
+x <- c(1/2)#
+i <- 1#
+while(TRUE) {#
+  x <- c(x, x - dlogf(x)/dlogf2(x))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.01) {#
+    break#
+  }#
+}
+x
+x <- c(1/2)#
+i <- 1#
+while(TRUE) {#
+  x <- c(x, x - dlogf(x)/dlogf2(x))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.001) {#
+    break#
+  }#
+}
+x
+i
+x[3]
+x[3]-x[2]
+x[2]
+curve(dlogf)
+x <- c(1/2)#
+i <- 1#
+while(TRUE) {#
+  x <- c(x, x - dlogf(x)/dlogf2(x))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.01) {#
+    break#
+  }#
+}
+x
+x <- c(1/2)#
+i <- 1#
+while(TRUE) {#
+  x <- c(x, x[i] - dlogf(x[i])/dlogf2(x[i]))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.01) {#
+    break#
+  }#
+}
+x
+x[3]
+x[3]-x[2]
+x <- c(1/2)#
+i <- 1#
+while(TRUE) {#
+  x <- c(x, x[i] - dlogf(x[i])/dlogf2(x[i]))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.001) {#
+    break#
+  }#
+}
+x
+x <- c(1/2)#
+i <- 1#
+while(TRUE) {#
+  x <- c(x, x[i] - dlogf(x[i])/dlogf2(x[i]))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.0001) {#
+    break#
+  }#
+}
+x
+x <- c(1/2)#
+i <- 1#
+while(TRUE) {#
+  x <- c(x, x[i] - dlogf(x[i])/dlogf2(x[i]))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.001) {#
+    break#
+  }#
+}
+x
+x <- c(1/2)#
+i <- 1#
+while(TRUE) {#
+  x <- c(x, x[i] - dlogf(x[i])/dlogf2(x[i]))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.00001) {#
+    break#
+  }#
+}
+x
+N <- 1000#
+power <- c()#
+power.lm <- c()#
+biases <- seq(1, 1.4, by=0.1)#
+for (biasf in biases) {#
+    ss <- c()#
+    spodds <- c()#
+    fpodds <- c()#
+    for (n in 1:length(range)) {#
+        samplerace <- c()#
+        for (i in 1:(numrace[n]*N)) {#
+            probs <- seq(biasf,1, length.out=range[n])#
+            samplerace <- rbind(samplerace, sample(1:range[n], prob=probs))#
+        }#
+        distances <- apply(samplerace, 1, permdist)#
+        dist <- matrix(distances, nrow=numrace[n])#
+        spds <- (dist - means[n])/sds[n]#
+        ss <- rbind(ss, spds)#
+#
+        # linear regression approach#
+        # logd is a N by (number of horses) * (number of races of this length)#
+        # so each row has [numrace] vectors of length [number of horses]#
+        logd <- matrix(apply(samplerace, 1, tolodds), ncol=range[n]*numrace[n], byrow=TRUE)#
+        n2 <- tolodds(1:range[n])#
+        logn <- matrix(rep(n2, N * numrace[n]), ncol=range[n]*numrace[n], byrow=TRUE)#
+        spodds <- cbind(spodds, logd)#
+        fpodds <- cbind(fpodds, logn)#
+    }#
+    simS <- apply(ss, 2, mean)#
+    power <- c(power, mean(simS < crit))#
+    pval <- c()#
+    for (i in 1:N) {#
+        pval <- c(pval, summary(lm(spodds[i,]~fpodds[i,]))$coef[2,4]/2)#
+    }#
+    power.lm <- c(power.lm, mean(pval < 0.01))#
+}#
+# coerce the data into nice format for ggplotting#
+z <- melt(data.frame(cbind(biases, power, power.lm)), id.vars="biases", measure.vars=c("power", "power.lm"))#
+names(z) <- c("biases", "type", "power")#
+ggplot(z, aes(x=biases, y=power, color=type))+geom_point(size=3)+geom_line(opacity=0.5)
+logf <- function(x) {#
+  125 * log((2 + x)/4) + 18 * log((1-x)/4) + 20 * log((1-x)/4) + 34 * log(x/4)#
+}#
+#
+# task: maximize this function#
+#
+# newton raphson on the derivative.#
+#
+dlogf <- function(x) {#
+  125 / (2 + x) - (18 + 20) / (1 - x) + 34 / x#
+}#
+#
+dlogf2 <- function(x) {#
+  - 125 / (2 + x)^2 - (18 + 20) / (1 - x)^2 - 34 / x^2#
+}#
+#
+x <- c(1/2)#
+i <- 1#
+while(TRUE) {#
+  x <- c(x, x[i] - dlogf(x[i])/dlogf2(x[i]))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.001) {#
+    break#
+  }#
+}
+x
+x <- c(1/2)#
+i <- 1#
+while(TRUE) {#
+  x <- c(x, x[i] - dlogf(x[i])/dlogf2(x[i]))#
+  i <- i+1#
+  if (abs(x[i]-x[i-1])<0.0001) {#
+    break#
+  }#
+}
+x
+library(grid)#
+grid.newpage()#
+grid.rect()#
+for (i in 1:10) {#
+  pushViewport(viewport(width=0.9,height=0.5))#
+    grid.rect()#
+    grid.text("Hello world", 0.5, 0.1)#
+  popViewport(1)#
+}
+library(grid)#
+grid.newpage()#
+grid.rect()#
+for (i in 1:10) {#
+  pushViewport(viewport(width=0.9,height=0.5))#
+    grid.rect()#
+    grid.text("Hello world", 0.5, 0.1)#
+}
+library(grid)#
+grid.newpage()#
+grid.rect()#
+for (i in 1:10) {#
+  pushViewport(viewport(width=0.9,height=0.9))#
+    grid.rect()#
+    grid.text("Hello world", 0.5, 0.1)#
+}
+library(grid)#
+grid.newpage()#
+grid.rect()#
+for (i in 1:20) {#
+  pushViewport(viewport(width=0.9,height=0.9))#
+    grid.rect()#
+    grid.text("Hello world", 0.5, 0.1)#
+}
+library(grid)#
+grid.newpage()#
+grid.rect()#
+for (i in 1:100) {#
+  pushViewport(viewport(width=0.9,height=0.9))#
+    grid.rect()#
+    grid.text("Hello world", 0.5, 0.1)#
+}
+library(grid)#
+grid.newpage()#
+grid.rect()#
+for (i in 1:100) {#
+  pushViewport(viewport(width=0.9,height=0.9))#
+    grid.rect()#
+    grid.text("A!", 0.5, 0.1)#
+}
+library(grid)#
+grid.newpage()#
+grid.rect()#
+for (i in 1:100) {#
+  pushViewport(viewport(width=0.9,height=0.9))#
+    grid.rect()#
+    grid.text("A", 0.5, 0.1)#
+}
+panel.smooth <- function(x,y,...)#
+  {#
+    knots=quantile(x,c(1/3,2/3))#
+    c1 <- mean(y[x < knots[1]])#
+    c2 <- mean(y[x >= knots[1] & x < knots[2]])#
+    c3 <- mean(y[x >= knots[2]])#
+    x1 <- seq(min(x),knots[1],len=33)#
+    x2 <- seq(knots[1],knots[2],len=33)#
+    x3 <- seq(knots[2],max(x),len=33)#
+    llines(x1,c1,col="black")#
+    lsegments(x0=knots[1],y0=min(y),x1=knots[1],y1=max(y),col="black",lty=2)#
+    llines(x2,c2,col="black")#
+    lsegments(x0=knots[2],y0=min(y),x1=knots[2],y1=max(y),col="black",lty=2)#
+    llines(x3,c3,col="black")#
+  }#
+xyplot(spnbmd~age|gender,bmd,panel=myPanel)
+require(lattice)
+require(splines)#
+require(mgcv)
+panel.smooth <- function(x,y,...)#
+  {#
+    knots=quantile(x,c(1/3,2/3))#
+    c1 <- mean(y[x < knots[1]])#
+    c2 <- mean(y[x >= knots[1] & x < knots[2]])#
+    c3 <- mean(y[x >= knots[2]])#
+    x1 <- seq(min(x),knots[1],len=33)#
+    x2 <- seq(knots[1],knots[2],len=33)#
+    x3 <- seq(knots[2],max(x),len=33)#
+    llines(x1,c1,col="black")#
+    lsegments(x0=knots[1],y0=min(y),x1=knots[1],y1=max(y),col="black",lty=2)#
+    llines(x2,c2,col="black")#
+    lsegments(x0=knots[2],y0=min(y),x1=knots[2],y1=max(y),col="black",lty=2)#
+    llines(x3,c3,col="black")#
+  }#
+xyplot(spnbmd~age|gender,bmd,panel=myPanel)
+all <- read.csv("TheGame_1875_2007.csv")#
+dput(all, "TheGame_1875_2007.txt")#
+#
+x <- all[-c(1:38),]#
+#
+library(grid)#
+pdf("Gamesince1920_2007.pdf", width=12, height=8)#
+#
+ties <- x$Winner=="Tie"#
+goodsp <- abs(x$Hscore-x$Yscore)>0
+install.packages('TTR')
+?SMA
+?movingaverage
+?rollMean
+??rollMean
+require(TTR)
+SMA(x)
+SMA(x, 10)
+x <- rnorm(100)#
+y <- rnorm(100)#
+#
+SMA(x, 10)
+summary(lm(SMA(y, 10) ~ SMA(x, 10)))
+summary(lm(y~x))
+ccf(x, y)
+ccf(x, y, 100)
+x <- rnorm(100)#
+y <- rnorm(100)#
+#
+summary(lm(SMA(y, 10) ~ SMA(x, 10)))#
+summary(lm(y~x))#
+ccf(SMA(y, 10), SMA(x, 10), 100)
+ccf(SMA(y, 10), SMA(x, 10), 100)
+ccf(SMA(y, 10), SMA(x, 10), 100, na.action = na.pass)
+plot(SMA(y, 10), SMA(x, 10))
+plot(x,y)
+x <- rnorm(1000)
+y <- rnorm(1000)
+plot(SMA(y, 10), SMA(x, 10))
+plot(x,y)
+plot(SMA(y, 100), SMA(x, 100))
+plot(x,y)
+plot(SMA(y, 100), SMA(x, 100))
+plot(SMA(y, 100))
+ccf(SMA(y, 10), SMA(x, 10), 100, na.action = na.pass)
+summary(lm(SMA(y, 10) ~ SMA(x, 10)))
+x2 <- 2#
+x3 <- c(1,2,3,4,5)#
+#
+x4 <- x3[min(which(x3>x2))]#
+#
+x4#
+=> 3
+x2
+x3
+which.min(x3 > x2)
+x3[which.min(x3 > x2)]
+which(x3 > x2)
+which(x3 > c(x2))
+which(x3 > c(x2,3))
+which(c(x3,6) > c(x2,3))
+which(c(x3,6) > c(x2,1))
+library(YaleToolkit)
+x <- cbind(read.csv(   'cmt.csv', as.is=TRUE)[,-1],#
+           read.csv('logmar.csv', as.is=TRUE)[,-1])#
+names(x) <- do.call(c, lapply(c('cmt','mar'), #
+                    function (x) paste(x, c(0,1,3,6,9,12), sep='')))#
+# Declare NAs and convert to numeric#
+for (j in 1:ncol(x)) {#
+	# The long way: just to avoid the warning when THESE is empty#
+	these <- grep("X", x[,j])#
+	if (length(these) > 0) {#
+		x[these, j] <- NA#
+	}#
+	x[,j] <- as.numeric(x[,j])#
+}
+?qda
+qda
+library(MASS)
+qda
+base::qda
+library(png)#
+library(geometry)#
+library(splancs)#
+#
+files <- dir("rawimages", full.names=TRUE)#
+#
+i <- 2#
+#
+# Read in the file, which will be a 3D array.  Tweak the dimension:#
+x <- readPNG(files[i])#
+y <- readPNG(files[i])#
+#
+nrows <- dim(x)[1]#
+ncols <- dim(x)[2]#
+total <- nrows * ncols#
+#
+xvals <- rep(1:nrows, ncols)#
+yvals <- rep(1:ncols, each=nrows)#
+dim(x) <- c(total, 3)#
+#
+# picking green by absolute#
+#
+green <- x[,2]==1 & x[,1]==0 & x[,3]==0
+source("/Users/dfeng/dfeng.github.com/make.R")
+base <- "/Users/dfeng/dfeng.github.com/"
+rmds <- "Rmd/"
+setwd(base)

@@ -1,17 +1,17 @@
 /* General */
 
 a {
-  color: #222;
+  color: #111;
 }
 a:hover {
-  color: #222;
+  color: #111;
 }
 body {
   font-family: 'Georgia';
   font-size: 13px;
 }
 body p, body li {
-  color: #777;
+  color: #888;
   line-height: 1.8em;
 }
 h1, h2, h3, h4 {
