@@ -39,8 +39,10 @@ dim(x) <- c(total, 3)
 ```
 
 <div class="alert">
-  <strong>Note!</strong> R <em>stores</em> it's matrixes as vectors, by column. Thus, the first 5 elements of the new coerced <code>x</code> is equivalent to the above <code>x[1:5,1,]</code> command (the first 5 elements in column 1).
+  <strong>Note!</strong> R <em>stores</em> it's matrices as vectors, by column.
 </div>
+If you've played around with matrices, you'll have noticed that for a 2-dimensional matrix, x[3] will return the element x[3,1].
+Thus, the first 5 elements of the new coerced <code>x</code> is equivalent to the above <code>x[1:5,1,]</code> command (the first 5 elements in column 1).
 
 ```{r}
 head(x)
