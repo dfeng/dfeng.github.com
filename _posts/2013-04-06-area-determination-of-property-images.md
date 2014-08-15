@@ -6,6 +6,7 @@ tagline: "Crude Approach to calculating areas"
 ---
 
 In a [class](http://www.stat.yale.edu/~jay/627.html) I am taking, we were given the following problem:
+
 > Calculate (rougly) the area of land shaded green, and the area of property in the green land (the grey buildings).
 
 Here is a typical image:
