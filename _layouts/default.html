@@ -111,9 +111,9 @@
         <div id="menu">
           <ul>
             {% if page.group != "navigation" %}
-            <li class="thispage"><a href="\">Blog</a></li>
+            <li class="thispage"><a href="/">Blog</a></li>
             {% else %}
-            <li><a href="\">Blog</a></li>
+            <li><a href="/">Blog</a></li>
             {% endif %}
             {% for node in site.pages %}{% if node.group == 'navigation' %}
             {% if node.title == page.title %}
